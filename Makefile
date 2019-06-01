@@ -1,5 +1,6 @@
 ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
+BIN_DIR=bin
 BINARY=socksprox
 VERSION=0.1.0
 BUILD=`git rev-parse HEAD`
@@ -14,17 +15,17 @@ default: build
 all: clean build-all install
 
 build:
-	go build ${LDFLAGS} -o ${BINARY}
+	go build ${LDFLAGS} -o ${BIN_DIR}/${BINARY}
 
 build-all:
 	$(foreach GOOS, $(PLATFORMS),\
-	$(foreach GOARCH, $(ARCHITECTURES), $(shell export GOOS=$(GOOS); export GOARCH=$(GOARCH); go build -v -o $(BINARY)-$(GOOS)-$(GOARCH))))
+	$(foreach GOARCH, $(ARCHITECTURES), $(shell export GOOS=$(GOOS); export GOARCH=$(GOARCH); go build -v -o $(BIN_DIR)/$(BINARY)-$(GOOS)-$(GOARCH))))
 
 install:
 	go install ${LDFLAGS}
 
 # Remove only what we've created
 clean:
-	find ${ROOT_DIR} -name '${BINARY}[-?][a-zA-Z0-9]*[-?][a-zA-Z0-9]*' -delete
+	rm ${ROOT_DIR}/${BIN_DIR}/*
 
 .PHONY: check clean install build_all all
