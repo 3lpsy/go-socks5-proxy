@@ -1,4 +1,6 @@
 server
+socksprox
+socksprox-*
 
 ### Linux ###
 *~
