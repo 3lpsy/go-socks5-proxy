@@ -2,7 +2,7 @@ ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 BIN_DIR=bin
 BINARY=socksprox
-VERSION=0.1.0
+VERSION=1.0.1
 BUILD=`git rev-parse HEAD`
 PLATFORMS=darwin linux windows
 ARCHITECTURES=386 amd64

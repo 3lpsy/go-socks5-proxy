@@ -34,6 +34,23 @@ The base socks5 library by armon does not support the following commands:
 - BIND
 - ASSOCIATE
 
+# Building
+
+Simply run:
+
+```
+$ make build
+$ ./bin/socksprox
+```
+
+## Cross Compiling
+
+Simply run:
+
+```
+$ make build-all
+```
+
 # Original README
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/ocassio/go-socks5-proxy.svg)](https://hub.docker.com/r/ocassio/go-socks5-proxy/)
